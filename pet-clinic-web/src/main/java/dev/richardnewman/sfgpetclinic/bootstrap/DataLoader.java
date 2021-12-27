@@ -4,6 +4,7 @@ import dev.richardnewman.sfgpetclinic.model.Owner;
 import dev.richardnewman.sfgpetclinic.model.Vet;
 import dev.richardnewman.sfgpetclinic.services.OwnerService;
 import dev.richardnewman.sfgpetclinic.services.VetService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +19,13 @@ public class DataLoader implements CommandLineRunner {
         this.vetService = vetService;
     }
 
+
     @Override
     public void run(String... args) throws Exception {
+       loadData();
+    }
+
+    private void loadData() {
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstName("Micheal");
