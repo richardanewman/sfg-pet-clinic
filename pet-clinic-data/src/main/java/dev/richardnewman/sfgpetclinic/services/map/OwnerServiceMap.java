@@ -3,10 +3,12 @@ package dev.richardnewman.sfgpetclinic.services.map;
 import dev.richardnewman.sfgpetclinic.model.Owner;
 import dev.richardnewman.sfgpetclinic.model.Vet;
 import dev.richardnewman.sfgpetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
