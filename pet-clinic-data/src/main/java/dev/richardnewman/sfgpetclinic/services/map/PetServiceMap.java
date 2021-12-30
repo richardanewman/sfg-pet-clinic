@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetServiceMap extends CommonMapService<Pet, Long> implements PetService {
 
 }
