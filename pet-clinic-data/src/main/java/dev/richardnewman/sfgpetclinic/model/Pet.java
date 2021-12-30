@@ -1,13 +1,26 @@
 package dev.richardnewman.sfgpetclinic.model;
 
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Pet extends BaseEntity {
 
+    @ManyToOne
+    @JoinColumn(name = "type.id")
     private PetType petType;
+
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name="owner.id")
     private Owner owner;
+
     private LocalDate birthDate;
 
     public PetType getPetType() {
