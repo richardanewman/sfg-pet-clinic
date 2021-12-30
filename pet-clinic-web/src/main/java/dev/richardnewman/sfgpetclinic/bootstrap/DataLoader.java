@@ -1,10 +1,11 @@
 package dev.richardnewman.sfgpetclinic.bootstrap;
 
 import dev.richardnewman.sfgpetclinic.model.Owner;
+import dev.richardnewman.sfgpetclinic.model.PetType;
 import dev.richardnewman.sfgpetclinic.model.Vet;
 import dev.richardnewman.sfgpetclinic.services.OwnerService;
+import dev.richardnewman.sfgpetclinic.services.PetTypeService;
 import dev.richardnewman.sfgpetclinic.services.VetService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +14,12 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
 
@@ -26,6 +29,17 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
+
+        PetType dog = new PetType();
+        dog.setName("Rover");
+
+        petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("Tom");
+
+        petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Micheal");
         owner1.setLastName("Weston");
