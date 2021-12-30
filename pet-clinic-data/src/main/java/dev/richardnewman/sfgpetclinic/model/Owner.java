@@ -1,6 +1,9 @@
 package dev.richardnewman.sfgpetclinic.model;
 
-import java.util.Set;
+import org.springframework.beans.support.MutableSortDefinition;
+import org.springframework.beans.support.PropertyComparator;
+
+import java.util.*;
 
 public class Owner extends Person {
 
@@ -33,8 +36,14 @@ public class Owner extends Person {
         this.telephone = telephone;
     }
 
-    public Set<Pet> getPets() {
-        return pets;
+    protected Set<Pet> getPetsInternal() {
+        return this.pets;
+    }
+
+    public List<String> getPets() {
+       List<String> names = new ArrayList<>();
+       getPetsInternal().forEach(pet -> names.add(pet.getName()));
+       return names;
     }
 
     public void setPets(Set<Pet> pets) {
