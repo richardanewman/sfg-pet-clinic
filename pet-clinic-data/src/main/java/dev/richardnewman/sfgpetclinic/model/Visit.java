@@ -7,14 +7,13 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table
 public class Visit extends BaseEntity {
 
     private LocalDate date;
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "pet.id")
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     public LocalDate getDate() {

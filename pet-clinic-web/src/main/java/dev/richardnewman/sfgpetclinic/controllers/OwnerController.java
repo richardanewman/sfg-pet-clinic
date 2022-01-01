@@ -19,7 +19,6 @@ public class OwnerController {
     public String listOwners(Model model) {
 
         model.addAttribute("owners", ownerService.findAll());
-        System.out.println("owners: " + ownerService.findByLastName("Weston"));
         return "owners/index";
     }
 }

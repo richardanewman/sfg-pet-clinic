@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="type")
 public class PetType extends BaseEntity {
 
     private String name;

@@ -3,26 +3,27 @@ package dev.richardnewman.sfgpetclinic.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
 public class Pet extends BaseEntity {
-
-    @ManyToOne
-    @JoinColumn(name = "type.id")
-    private PetType petType;
 
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="owner.id")
+    @JoinColumn(name = "type_id")
+    private PetType petType;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
 
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet.id")
-    private Set<Visit> visits;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
     public PetType getPetType() {
         return petType;

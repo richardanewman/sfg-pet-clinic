@@ -29,10 +29,10 @@
          <td th:text="${owner.address}">Address</td>
          <td th:text="${owner.city}">City</td>
          <td th:text="${owner.telephone}">Telephone</td>
-         <td><span th:text="${#strings.listJoin(owner.pets, ', ')}"/></td>
+         <td><span th:text="${#strings.listJoin(owner.getPets(), ', ')}"/></td>
 
 
-     </td>
+     </tr>
      </tbody>
  </table>
 </body>

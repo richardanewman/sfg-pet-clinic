@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table
 public class Specialty extends BaseEntity {
 
     private String description;

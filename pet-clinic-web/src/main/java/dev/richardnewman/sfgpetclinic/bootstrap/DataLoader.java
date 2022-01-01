@@ -62,20 +62,14 @@ public class DataLoader implements CommandLineRunner {
         owner1.setAddress("123 Main St");
         owner1.setCity("Boise");
         owner1.setTelephone("208-555-5555");
+        ownerService.save(owner1);
 
-        Set<Pet> mikesPets = new HashSet<>();
         Pet rover = new Pet();
         rover.setPetType(dog);
         rover.setName("Rover");
         rover.setBirthDate(LocalDate.parse("2020-01-15"));
+        rover.setOwner(owner1);
         petService.save(rover);
-        mikesPets.add(rover);
-
-        owner1.setPets(mikesPets);
-
-        ownerService.save(owner1);
-
-
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
@@ -83,25 +77,21 @@ public class DataLoader implements CommandLineRunner {
         owner2.setAddress("987 Garfield St");
         owner2.setCity("Laramie");
         owner2.setTelephone("307-555-5555");
+        ownerService.save(owner2);
 
-        Set<Pet> fionaPets = new HashSet<>();
         Pet max = new Pet();
         max.setPetType(dog);
         max.setName("Max");
         max.setBirthDate(LocalDate.parse("2020-02-22"));
+        max.setOwner(owner2);
         petService.save(max);
-        fionaPets.add(max);
 
         Pet smokey = new Pet();
         smokey.setPetType(dog);
         smokey.setName("Smokey");
         smokey.setBirthDate(LocalDate.parse("2020-02-23"));
+        smokey.setOwner(owner2);
         petService.save(smokey);
-        fionaPets.add(smokey);
-
-        owner2.setPets(fionaPets);
-
-        ownerService.save(owner2);
 
 
         System.out.println("Loaded Owners....");
