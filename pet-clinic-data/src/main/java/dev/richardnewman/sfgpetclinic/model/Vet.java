@@ -1,11 +1,14 @@
 package dev.richardnewman.sfgpetclinic.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Data
 @Entity
 public class Vet extends Person {
 
@@ -21,9 +24,5 @@ public class Vet extends Person {
         List<String> names = new ArrayList<>();
         getSpecialtiesInternal().forEach(specialty -> names.add(specialty.getDescription()));
         return names;
-    }
-
-    public void setSpecialties(Set<Specialty> specialties) {
-        this.specialties = specialties;
     }
 }

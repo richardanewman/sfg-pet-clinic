@@ -1,11 +1,14 @@
 package dev.richardnewman.sfgpetclinic.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 
 import javax.persistence.*;
 import java.util.*;
 
+@Data
 @Entity
 public class Owner extends Person {
 
@@ -15,30 +18,6 @@ public class Owner extends Person {
 
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
 
     protected Set<Pet> getPetsInternal() {
         return this.pets;
@@ -50,7 +29,4 @@ public class Owner extends Person {
        return names;
     }
 
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
 }
