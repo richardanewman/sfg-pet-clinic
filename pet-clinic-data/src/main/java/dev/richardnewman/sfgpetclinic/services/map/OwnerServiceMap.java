@@ -10,6 +10,10 @@ import java.util.Set;
 @Profile("map")
 public class OwnerServiceMap extends CommonMapService<Owner, Long> implements OwnerService {
 
+    public OwnerServiceMap(PetTypeMapService petTypeMapService, PetServiceMap petServiceMap) {
+        super();
+    }
+
     @Override
     public Owner findByLastName(String lastName) {
         return this.findAll().stream().filter(owner -> owner.getLastName().equalsIgnoreCase(lastName)).findFirst().orElse(null);
